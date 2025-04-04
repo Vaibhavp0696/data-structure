@@ -11,6 +11,8 @@ snum = c2.number_input("Second number", value=0)
 options = ["Addition", "Subtraction", "Multiply", "Divide"]
 choice = st.radio("Select operation", options)
 
+# button on which after clicking an action becomes
+
 button = st.button("Calulate")
 
 result = 0
