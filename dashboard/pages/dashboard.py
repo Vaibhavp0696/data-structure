@@ -18,14 +18,21 @@ pclass = st.sidebar.multiselect('Class',
                                 options= df['pclass'].unique(),
                                 default= df['pclass'].unique())
 #age filter
-age = st.sidebar.slider('Age',
+min_age, max_age = st.sidebar.slider('Age',
                         min_value= int(df['age'].min()),
                         max_value= int(df['age'].max()),
                         value= (int(df['age'].min()), int(df['age'].max())))
 
+filtered_data = df[
+    (df['sex'].isin(gender)) &
+    (df['pclass'].isin(pclass)) &
+    (df['age'] >= min_age) &
+    (df['age'] <= max_age)
+    ]
+
 #histogram of age distribution
 st.subheader("Age Distribution")
-fig = px.histogram(df, x="age", nbins=20, title="Age Distribution")
+fig = px.histogram(filtered_datadashboard, x="age", nbins=20, title="Age Distribution")
 st.plotly_chart(fig)
 
 #pie chart of survuval rate by gender
