@@ -51,4 +51,4 @@ st.plotly_chart(fig)
 
 fig = px.line(df.groupby('age')['survived'].mean().reset_index(), x='age',
               y='survived',title='Survival rate by age',markers=True)
-st.plotly_chart(fig)
+st.plotly_chart(fig) 
