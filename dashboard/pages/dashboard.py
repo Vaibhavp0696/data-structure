@@ -31,9 +31,18 @@ filtered_data = df[
     ]
 
 #histogram of age distribution
-st.subheader("Age Distribution")
+import plotly.express as px
+import pandas as pd
+
+# Sample data
+dashboard = pd.DataFrame({'age': [23, 45, 33, 29, 40, 50]})
+
+# Filter the data (example condition)
+filtered_datadashboard = dashboard[dashboard['age'] > 30]
+
+# Plot
 fig = px.histogram(filtered_datadashboard, x="age", nbins=20, title="Age Distribution")
-st.plotly_chart(fig)
+fig.show()
 
 #pie chart of survuval rate by gender
 
